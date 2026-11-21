@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+
+@layer components {
+  .floor-plan {
+    @apply grid grid-cols-8 gap-3 p-5;
+    grid-auto-rows: 100px;
+  }
+
+  .booth {
+    @apply flex flex-col items-center justify-center
+           rounded-lg border-2;
+  }
+
+  .booth.available {
+    @apply bg-green-100 border-green-500;
+  }
+
+  .booth.reserved {
+    @apply bg-yellow-100 border-yellow-500;
+  }
+
+  .booth.occupied {
+    @apply bg-red-100 border-red-500;
+  }
+}
+
+.booth {
+  position: relative;
+}
+
+.booth-tooltip {
+  display: none;
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 200px;
+  padding: 10px;
+
+  background: #1f2937;
+  color: white;
+
+  border-radius: 8px;
+  z-index: 50;
+}
+
+.booth:hover .booth-tooltip {
+  display: block;
+}
